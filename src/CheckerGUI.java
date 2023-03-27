@@ -20,33 +20,9 @@ public class CheckerGUI {
 
     public final void initializeGui() {
         checkerBoard = new JPanel(new GridLayout(0, 9)) {
-
-            /**
-             * Override the preferred size to return the largest it can, in
-             * a square shape.  Must (must, must) be added to a GridBagLayout
-             * as the only component (it uses the parent as a guide to size)
-             * with no GridBagConstaint (so it is centered).
-             */
             @Override
             public final Dimension getPreferredSize() {
-                Dimension d = super.getPreferredSize();
-                Dimension prefSize = null;
-                Component c = getParent();
-                if (c == null) {
-                    prefSize = new Dimension(
-                            (int)d.getWidth(),(int)d.getHeight());
-                } else if (c!=null &&
-                        c.getWidth()>d.getWidth() &&
-                        c.getHeight()>d.getHeight()) {
-                    prefSize = c.getSize();
-                } else {
-                    prefSize = d;
-                }
-                int w = (int) prefSize.getWidth();
-                int h = (int) prefSize.getHeight();
-                // the smaller of the two sizes
-                int s = (w>h ? h : w);
-                return new Dimension(s,s);
+                return new Dimension(900,900);
             }
         };
         // Set the BG to be ochre
@@ -128,34 +104,4 @@ public class CheckerGUI {
         return gui;
     }
 
-    public void checkersInitialize(){
-        for(int i = 1; i < 9; i ++){
-            for(int b = 1; b < 9; b++){
-                int num = (i * 10) + b;
-                map.put(num, null); // blank hashmap
-            }
-        }
-
-        for(int j = 12; j < 20; j+=2){ //row
-            map.put(j, new Checker("black", j / 10, j % 10));
-        }
-
-        for(int a = 21; a < 28; a += 2){
-            map.put(a, new Checker("black", a / 10, a % 10));
-        }
-
-        for(int b = 32; b < 39; b += 2){
-            map.put(b, new Checker("black", b / 10, b % 10));
-        }
-
-        for(int i = 61; i< 68; i+=2){
-            map.put(i, new Checker("red", i/10, i%10));
-        }
-        for(int i = 72; i< 79; i+=2){
-            map.put(i, new Checker("red", i/10, i%10));
-        }
-        for(int i = 81; i< 88; i+=2){
-            map.put(i, new Checker("red", i/10, i%10));
-        }
-    }
 }
