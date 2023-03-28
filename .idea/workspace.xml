@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="992dcbd3-9591-453e-9623-f9e29da54f31" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/blackKing.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/black.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blackKing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/redKing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/black.png" beforeDir="false" afterPath="$PROJECT_DIR$/black.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Capture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Capture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CheckerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CheckerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Move.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

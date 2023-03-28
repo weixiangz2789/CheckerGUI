@@ -2,11 +2,13 @@ public class Checker{
     String color;
     int piecePositionX;
     int piecePositionY;
+    boolean isPromoted;
 
-    public Checker(String color, int piecePositionX, int piecePositionY){
+    public Checker(String color, int piecePositionX, int piecePositionY, boolean isPromoted){
         this.color = color;
         this.piecePositionX = piecePositionX;
         this.piecePositionY = piecePositionY;
+        this.isPromoted = isPromoted;
     }
 
     public int getPiecePositionX(){
@@ -19,6 +21,14 @@ public class Checker{
 
     public String getColor(){
         return color;
+    }
+
+    public boolean isPromoted(){
+        return isPromoted;
+    }
+
+    public void setPromoted(boolean n){
+        isPromoted = n;
     }
 
     public void setPiecePosition(int newX, int newY){

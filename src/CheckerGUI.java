@@ -48,16 +48,16 @@ public class CheckerGUI {
                     ImageIcon icon = new ImageIcon("black.png");
                     b.setIcon(icon);
                     b.setEnabled(true);
-                    checkerPieces[i][j] = new Checker("black", i, j);
+                    checkerPieces[i][j] = new Checker("black", i, j, false);
                 }
                 else if (i > 4 && (i+j) % 2 == 1){
                     ImageIcon icon = new ImageIcon("red.png");
                     b.setIcon(icon);
                     b.setEnabled(true);
-                    checkerPieces[i][j] = new Checker("red", i, j);
+                    checkerPieces[i][j] = new Checker("red", i, j, false);
                 }
                 else{
-                    checkerPieces[i][j] = new Checker("", i, j);
+                    checkerPieces[i][j] = new Checker("", i, j, false);
                 }
                 b.setBorderPainted(false);
                 b.setFocusPainted(false);
