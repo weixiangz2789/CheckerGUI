@@ -13,9 +13,11 @@ public class CheckerGUI {
     private Checker[][] checkerPieces = new Checker[8][8];
     private JPanel checkerBoard;
     private static final String COLS = "ABCDEFGH";
+    private Move moves;
 
     CheckerGUI() {
         initializeGui();
+        moves = new Move(false);
     }
 
     public final void initializeGui() {
@@ -61,11 +63,14 @@ public class CheckerGUI {
                 }
                 b.setBorderPainted(false);
                 b.setFocusPainted(false);
-                int finalI = i;
-                int finalJ = j;
                 b.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        showMoves(finalI, finalJ);
+                        Object source = e.getSource();
+                        JButton clicked = (JButton) source;
+                        int i = clicked.getX() % 8;
+                        int j = clicked.getY() % 8;
+                        System.out.println(i + " " + j);
+                        showMoves(checkerPieces[i][j]);
                     }
                 });
                 checkerBoardSquares[j][i] = b;
@@ -91,11 +96,18 @@ public class CheckerGUI {
         }
     }
 
-    public void showMoves(int i, int j){
-        if (checkerPieces[i][j].getColor().equals("red")){
+    public void showMoves(Checker e){
+        ImageIcon icon = new ImageIcon("blank.png");
+        if (e.getColor().equals("red")){
+            if (moves.canMoveLeftRed(checkerPieces, e)){
+                checkerBoardSquares[e.getPiecePositionX()-1][e.getPiecePositionY()-1].setEnabled(true);
+                checkerBoardSquares[e.getPiecePositionX()-1][e.getPiecePositionY()-1].setIcon(icon);
+            }
+            if (moves.canMoveRightRed(checkerPieces, e)){
 
+            }
         }
-        else if (checkerPieces[i][j].getColor().equals("black")){
+        else if (e.getColor().equals("black")){
 
         }
 
