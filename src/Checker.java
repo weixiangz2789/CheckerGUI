@@ -30,6 +30,9 @@ public class Checker{
     public void setPromoted(boolean n){
         isPromoted = n;
     }
+    public void setColor(String color){
+        this.color = color;
+    }
 
     public void setPiecePosition(int newX, int newY){
         piecePositionX = newX;
