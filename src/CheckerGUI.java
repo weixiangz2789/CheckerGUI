@@ -2,10 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 
 public class CheckerGUI {
-    private HashMap<Integer, Checker> map = new HashMap<Integer, Checker>();
     private Color red = new Color(255,0,0,255);
     private Color black = new Color(0,0,0,255);
     private final JPanel gui = new JPanel(new BorderLayout(3, 3));
@@ -41,18 +39,18 @@ public class CheckerGUI {
                 JButton b = new JButton();
                 b.setMargin(buttonMargin);
                 b.setEnabled(false);
-                if ((j % 2 == 1 && i % 2 == 1) || (j % 2 == 0 && i % 2 == 0)) {
+                if ((i % 2 == 1 && j % 2 == 1) || (i % 2 == 0 && j % 2 == 0)) {
                     b.setBackground(red);
                 } else {
                     b.setBackground(black);
                 }
-                if (i < 3 && (i+j) % 2 == 1){
+                if (j < 3 && (i+j) % 2 == 1){
                     ImageIcon icon = new ImageIcon("black.png");
                     b.setIcon(icon);
                     b.setEnabled(true);
                     checkerPieces[i][j] = new Checker("black", i, j, false);
                 }
-                else if (i > 4 && (i+j) % 2 == 1){
+                else if (j > 4 && (i+j) % 2 == 1){
                     ImageIcon icon = new ImageIcon("red.png");
                     b.setIcon(icon);
                     b.setEnabled(true);
@@ -67,13 +65,13 @@ public class CheckerGUI {
                     public void actionPerformed(ActionEvent e) {
                         Object source = e.getSource();
                         JButton clicked = (JButton) source;
-                        int i = clicked.getX() % 8;
-                        int j = clicked.getY() % 8;
+                        int i = 4;
+                        int j = 5;
                         System.out.println(i + " " + j);
                         showMoves(checkerPieces[i][j]);
                     }
                 });
-                checkerBoardSquares[j][i] = b;
+                checkerBoardSquares[i][j] = b;
             }
         }
 
@@ -99,7 +97,10 @@ public class CheckerGUI {
     public void showMoves(Checker e){
         ImageIcon icon = new ImageIcon("blank.png");
         if (e.getColor().equals("red")){
-            if (moves.canMoveLeftRed(checkerPieces, e)){
+            System.out.println(moves.canMoveLeftRed(checkerPieces, e));
+            System.out.println(e.getPiecePositionX());
+            System.out.println(e.getPiecePositionY());
+            if (1 == 1){
                 checkerBoardSquares[e.getPiecePositionX()-1][e.getPiecePositionY()-1].setEnabled(true);
                 checkerBoardSquares[e.getPiecePositionX()-1][e.getPiecePositionY()-1].setIcon(icon);
             }
@@ -113,6 +114,8 @@ public class CheckerGUI {
 
     }
     public final JComponent getGui() {
+        ImageIcon icon = new ImageIcon("blank.png");
+//        checkerBoardSquares[1][4].setIcon(icon);
         return gui;
     }
 
