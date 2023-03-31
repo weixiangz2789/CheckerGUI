@@ -35,7 +35,7 @@ public class Capture{
 
     public boolean canCaptureRightRed(Checker[][] checkerPieces, Checker e){
         if((e.getPiecePositionX()-2 >= 0 && (e.getPiecePositionY()+2 <=7))
-                && checkerPieces[e.getPiecePositionX()-2][e.getPiecePositionY()+2].getColor().equals("")
+               && checkerPieces[e.getPiecePositionX()-2][e.getPiecePositionY()+2].getColor().equals("")
                 && checkerPieces[e.getPiecePositionX()-1][e.getPiecePositionY()+1].getColor().equals("black")){
             legalMovesRed.add((e.getPiecePositionX() - 2) * 10 + e.getPiecePositionY() + 2);
             return true;
@@ -61,6 +61,11 @@ public class Capture{
             return true;
         }
         return false;
+    }
+
+    public void resetMoves(){
+        legalMovesRed = new ArrayList<>();
+        legalMovesBlack = new ArrayList<>();
     }
 
 //public void captureStandard(Checker e){

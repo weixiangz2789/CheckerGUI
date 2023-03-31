@@ -87,9 +87,9 @@ public class CheckerGUI {
                             showMoves(checkerPieces[row][col]);
                         }
                         if (desc.equals(blank.getDescription())) {
-                            checkerPieces[row][col].setColor(selected.getColor());
                             if (selected.getColor().equals("red")) {
                                 checkerBoardSquares[row][col].setIcon(red);
+                                System.out.println(capture.canCaptureRightRed(checkerPieces, selected));
                                 if (capture.canCaptureLeftRed(checkerPieces, selected)) {
                                     checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setIcon(null);
                                     checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setEnabled(false);
@@ -100,10 +100,22 @@ public class CheckerGUI {
                                     checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setEnabled(false);
                                     checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setColor("");
                                 }
-
-                            } else {
+                                checkerPieces[row][col].setColor("red");
+                            } else if (selected.getColor().equals("black")) {
                                 checkerBoardSquares[row][col].setIcon(black);
+                                if (capture.canCaptureLeftBlack(checkerPieces, selected)) {
+                                    checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setIcon(null);
+                                    checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setEnabled(false);
+                                    checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setColor("");
+                                }
+                                if (capture.canCaptureRightBlack(checkerPieces, selected)) {
+                                    checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setIcon(null);
+                                    checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setEnabled(false);
+                                    checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setColor("");
+                                }
+                                checkerPieces[row][col].setColor("black");
                             }
+                            checkerPieces[row][col].setColor(selected.getColor());
                             checkerBoardSquares[selected.getPiecePositionX()][selected.getPiecePositionY()].setIcon(null);
                             checkerBoardSquares[selected.getPiecePositionX()][selected.getPiecePositionY()].setEnabled(false);
                             checkerPieces[selected.getPiecePositionX()][selected.getPiecePositionY()].setColor("");
@@ -147,6 +159,7 @@ public class CheckerGUI {
             }
             moves.switchTurns();
         }
+        capture.resetMoves();
     }
 
     public void showMoves(Checker e) {
@@ -156,7 +169,8 @@ public class CheckerGUI {
 //        System.out.println("CAN Capture right black " + capture.canCaptureRightBlack(checkerPieces, e));
 //        System.out.println("CAN Capture left black " + capture.canCaptureLeftBlack(checkerPieces, e));
 //        if (moves.isBlackMove()) {
-//            for (int i = 0; i < 8; i++) {
+//           disc
+//           for (int i = 0; i < 8; i++) {
 //                for (int j = 0; j < 8; j++) {
 //                    if (checkerPieces[i][j].getColor().equals("red")) {
 //                        checkerBoardSquares[i][j].setEnabled(false);
@@ -199,7 +213,7 @@ public class CheckerGUI {
             }
         }
         ArrayList<Integer> temp = captureMoves(e);
-        System.out.println(temp.size());
+//        System.out.println(temp.size());
         for (int i = 0; i < temp.size(); i++) {
             checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
             checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);

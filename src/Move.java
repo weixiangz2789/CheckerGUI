@@ -4,7 +4,7 @@ public class Move{
     private ArrayList<Integer> legalMovesRed = new ArrayList<Integer>();
     boolean blackMove;
 //    MovePromoted movePromoted = new MovePromoted();
-    CapturePromoted capturePromoted = new CapturePromoted();
+//    CapturePromoted capturePromoted = new CapturePromoted();
 
 
     public Move() {
