@@ -2,8 +2,13 @@ import java.util.*;
 public class Move{
     private ArrayList<Integer> legalMovesBlack = new ArrayList<Integer>();
     private ArrayList<Integer> legalMovesRed = new ArrayList<Integer>();
+    boolean blackMove;
+//    MovePromoted movePromoted = new MovePromoted();
+    CapturePromoted capturePromoted = new CapturePromoted();
 
-    public Move(){
+
+    public Move() {
+        blackMove = true;
     }
 
     public boolean canMoveLeftBlack(Checker[][] checkerPieces, Checker e){
