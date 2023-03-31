@@ -145,6 +145,7 @@ public class CheckerGUI {
                     }
                 }
             }
+            moves.switchTurns();
         }
     }
 
