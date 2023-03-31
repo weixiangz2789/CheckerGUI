@@ -22,6 +22,7 @@ public class CheckerGUI {
     private ImageIcon black = new ImageIcon("black.png");
     private ImageIcon red = new ImageIcon("red.png");
     private Checker selected;
+    private int turnNum = 1;
 
 
     CheckerGUI() {
@@ -65,8 +66,9 @@ public class CheckerGUI {
                     checkerPieces[i][j] = new Checker("black", i, j, false);
                 } else if (i > 4 && (i + j) % 2 == 1) {
                     ImageIcon icon = new ImageIcon("red.png");
+                    b.setDisabledIcon(red);
                     b.setIcon(icon);
-                    b.setEnabled(true);
+                    b.setEnabled(false);
                     checkerPieces[i][j] = new Checker("red", i, j, false);
                 } else {
                     checkerPieces[i][j] = new Checker("", i, j, false);
@@ -114,6 +116,8 @@ public class CheckerGUI {
                                 }
                                 checkerPieces[row][col].setColor("black");
                             }
+                            turnNum++;
+                            switchTurns();
                             checkerPieces[row][col].setColor(selected.getColor());
                             checkerPieces[selected.getPiecePositionX()][selected.getPiecePositionY()].setColor("");
                             checkerBoardSquares[selected.getPiecePositionX()][selected.getPiecePositionY()].setIcon(null);
@@ -165,6 +169,34 @@ public class CheckerGUI {
             moves.switchTurns();
         }
         capture.resetMoves();
+    }
+
+    private void switchTurns() {
+        if(turnNum%2 != 0) {
+            for(int row = 0; row < 8; row ++) {
+                for(int col = 0; col < 8; col ++) {
+                    if(checkerPieces[row][col].getColor().equals("red")) {
+                        checkerBoardSquares[row][col].setDisabledIcon(red);
+                        checkerBoardSquares[row][col].setEnabled(false);
+                    }
+                    if(checkerPieces[row][col].getColor().equals("black")) {
+                        checkerBoardSquares[row][col].setEnabled(true);
+                    }
+                }
+            }
+        } else {
+            for(int row = 0; row < 8; row ++) {
+                for(int col = 0; col < 8; col ++) {
+                    if(checkerPieces[row][col].getColor().equals("black")) {
+                        checkerBoardSquares[row][col].setDisabledIcon(black);
+                        checkerBoardSquares[row][col].setEnabled(false);
+                    }
+                    if(checkerPieces[row][col].getColor().equals("red")) {
+                        checkerBoardSquares[row][col].setEnabled(true);
+                    }
+                }
+            }
+        }
     }
 
     public void showMoves(Checker e) {
