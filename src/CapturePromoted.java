@@ -27,7 +27,6 @@ public class CapturePromoted extends Capture {
     @Override
     public void canCaptureRightRed(Checker[][] checkerPieces, Checker e) {
         super.canCaptureRightRed(checkerPieces, e);
-
         if (checkerPieces[e.getPiecePositionX() + 2][e.getPiecePositionY() + 2].getColor().equals("")
                 && checkerPieces[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].getColor().equals("black")
                 && (e.getPiecePositionX() + 2 <= 7) && (e.getPiecePositionY() + 2 <= 7)) {
