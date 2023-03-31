@@ -89,7 +89,6 @@ public class CheckerGUI {
                         if (desc.equals(blank.getDescription())) {
                             if (selected.getColor().equals("red")) {
                                 checkerBoardSquares[row][col].setIcon(red);
-                                System.out.println(capture.canCaptureRightRed(checkerPieces, selected));
                                 if (capture.canCaptureLeftRed(checkerPieces, selected)) {
                                     checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setIcon(null);
                                     checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setEnabled(false);
@@ -106,20 +105,19 @@ public class CheckerGUI {
                                 if (capture.canCaptureLeftBlack(checkerPieces, selected)) {
                                     checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setIcon(null);
                                     checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setEnabled(false);
-                                    checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setColor("");
+                                    checkerPieces[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setColor("");
                                 }
                                 if (capture.canCaptureRightBlack(checkerPieces, selected)) {
                                     checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setIcon(null);
                                     checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setEnabled(false);
-                                    checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setColor("");
+                                    checkerPieces[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setColor("");
                                 }
                                 checkerPieces[row][col].setColor("black");
                             }
                             checkerPieces[row][col].setColor(selected.getColor());
+                            checkerPieces[selected.getPiecePositionX()][selected.getPiecePositionY()].setColor("");
                             checkerBoardSquares[selected.getPiecePositionX()][selected.getPiecePositionY()].setIcon(null);
                             checkerBoardSquares[selected.getPiecePositionX()][selected.getPiecePositionY()].setEnabled(false);
-                            System.out.println(checkerPieces[selected.getPiecePositionX()][selected.getPiecePositionY()].getColor());
-                            checkerPieces[selected.getPiecePositionX()][selected.getPiecePositionY()].setColor("");
                             endMoves();
                         }
                     }
@@ -148,6 +146,12 @@ public class CheckerGUI {
     }
 
     public void endMoves() {
+//        for (int i = 0; i < checkerPieces.length; i ++){
+//            for (int x = 0; x < checkerPieces[0].length; x ++){
+//                System.out.print(checkerPieces[i][x].getColor() + " ");
+//            }
+//            System.out.println();
+//        }
         for (int i = 0; i < checkerBoardSquares.length; i++) {
             for (int x = 0; x < checkerBoardSquares.length; x++) {
                 if (checkerBoardSquares[i][x].getIcon() != null) {
@@ -214,11 +218,11 @@ public class CheckerGUI {
             }
         }
         ArrayList<Integer> temp = captureMoves(e);
-//        System.out.println(temp.size());
         for (int i = 0; i < temp.size(); i++) {
             checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
             checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
         }
+
     }
 
     public ArrayList<Integer> captureMoves(Checker e) {

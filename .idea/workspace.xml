@@ -37,9 +37,14 @@
         <range start1="24" end1="24" start2="24" end2="25" changelist="6eb685ef-5b17-4d67-9133-917ac1124864" />
         <range start1="67" end1="67" start2="68" end2="69" changelist="6eb685ef-5b17-4d67-9133-917ac1124864" />
         <range start1="68" end1="69" start2="70" end2="71" changelist="6eb685ef-5b17-4d67-9133-917ac1124864" />
-        <range start1="117" end1="117" start2="119" end2="121" changelist="6eb685ef-5b17-4d67-9133-917ac1124864" />
-        <range start1="120" end1="120" start2="124" end2="125" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
-        <range start1="163" end1="163" start2="168" end2="196" changelist="6eb685ef-5b17-4d67-9133-917ac1124864" />
+        <range start1="91" end1="92" start2="93" end2="93" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
+        <range start1="117" end1="117" start2="118" end2="120" changelist="6eb685ef-5b17-4d67-9133-917ac1124864" />
+        <range start1="118" end1="118" start2="121" end2="122" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
+        <range start1="120" end1="122" start2="124" end2="124" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
+        <range start1="150" end1="150" start2="152" end2="158" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
+        <range start1="164" end1="164" start2="172" end2="200" changelist="6eb685ef-5b17-4d67-9133-917ac1124864" />
+        <range start1="216" end1="217" start2="252" end2="252" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
+        <range start1="221" end1="221" start2="256" end2="257" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
       </ranges>
     </file>
   </component>
@@ -132,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680292514891</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="w">
+      <created>1680294785009</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680294785009</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,7 +172,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/CheckerGUI.java</url>
-          <line>220</line>
+          <line>224</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
