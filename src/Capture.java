@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-public class Capture{
+public class Capture {
     private ArrayList<Integer> legalMovesRed;
     private ArrayList<Integer> legalMovesBlack;
 
     private int blackPieces = 12;
     private int redPieces = 12;
 
-    public Capture(){
+    public Capture() {
         legalMovesRed = new ArrayList<>();
         legalMovesBlack = new ArrayList<>();
     }
@@ -22,10 +22,10 @@ public class Capture{
     }
 
 
-    public boolean canCaptureLeftRed(Checker[][] checkerPieces, Checker e){
-        if((e.getPiecePositionX()-2 >= 0 ) && (e.getPiecePositionY()-2 >=0)
-                && checkerPieces[e.getPiecePositionX()-2][e.getPiecePositionY()-2].getColor().equals("")
-                && checkerPieces[e.getPiecePositionX()-1][e.getPiecePositionY()-1].getColor().equals("black")){
+    public boolean canCaptureLeftRed(Checker[][] checkerPieces, Checker e) {
+        if ((e.getPiecePositionX() - 2 >= 0) && (e.getPiecePositionY() - 2 >= 0)
+                && checkerPieces[e.getPiecePositionX() - 2][e.getPiecePositionY() - 2].getColor().equals("")
+                && checkerPieces[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].getColor().equals("black")) {
             legalMovesRed.add((e.getPiecePositionX() - 2) * 10 + e.getPiecePositionY() - 2);
             return true;
 
@@ -33,37 +33,37 @@ public class Capture{
         return false;
     }
 
-    public boolean canCaptureRightRed(Checker[][] checkerPieces, Checker e){
-        if((e.getPiecePositionX()-2 >= 0 && (e.getPiecePositionY()+2 <=7))
-               && checkerPieces[e.getPiecePositionX()-2][e.getPiecePositionY()+2].getColor().equals("")
-                && checkerPieces[e.getPiecePositionX()-1][e.getPiecePositionY()+1].getColor().equals("black")){
+    public boolean canCaptureRightRed(Checker[][] checkerPieces, Checker e) {
+        if ((e.getPiecePositionX() - 2 >= 0 && (e.getPiecePositionY() + 2 <= 7))
+                && checkerPieces[e.getPiecePositionX() - 2][e.getPiecePositionY() + 2].getColor().equals("")
+                && checkerPieces[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].getColor().equals("black")) {
             legalMovesRed.add((e.getPiecePositionX() - 2) * 10 + e.getPiecePositionY() + 2);
             return true;
         }
         return false;
     }
 
-    public boolean canCaptureRightBlack(Checker[][] checkerPieces, Checker e){
-        if((e.getPiecePositionX()+2 <= 7 ) && (e.getPiecePositionY()+2 <=7)
-                && checkerPieces[e.getPiecePositionX()+2][e.getPiecePositionY()+2].getColor().equals("")
-                && checkerPieces[e.getPiecePositionX()+1][e.getPiecePositionY()+1].getColor().equals("red")){
+    public boolean canCaptureRightBlack(Checker[][] checkerPieces, Checker e) {
+        if ((e.getPiecePositionX() + 2 <= 7) && (e.getPiecePositionY() + 2 <= 7)
+                && checkerPieces[e.getPiecePositionX() + 2][e.getPiecePositionY() + 2].getColor().equals("")
+                && checkerPieces[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].getColor().equals("red")) {
             legalMovesBlack.add((e.getPiecePositionX() + 2) * 10 + e.getPiecePositionY() + 2);
             return true;
         }
         return false;
     }
 
-    public boolean canCaptureLeftBlack(Checker[][] checkerPieces, Checker e){
-        if((e.getPiecePositionX()+2 <= 7  && e.getPiecePositionY()-2 >=0)
-                && checkerPieces[e.getPiecePositionX()+2][e.getPiecePositionY()-2].getColor().equals("")
-                && checkerPieces[e.getPiecePositionX()+1][e.getPiecePositionY()-1].getColor().equals("red")){
+    public boolean canCaptureLeftBlack(Checker[][] checkerPieces, Checker e) {
+        if ((e.getPiecePositionX() + 2 <= 7 && e.getPiecePositionY() - 2 >= 0)
+                && checkerPieces[e.getPiecePositionX() + 2][e.getPiecePositionY() - 2].getColor().equals("")
+                && checkerPieces[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].getColor().equals("red")) {
             legalMovesBlack.add((e.getPiecePositionX() + 2) * 10 + e.getPiecePositionY() - 2);
             return true;
         }
         return false;
     }
 
-    public void resetMoves(){
+    public void resetMoves() {
         legalMovesRed = new ArrayList<>();
         legalMovesBlack = new ArrayList<>();
     }
@@ -87,7 +87,6 @@ public class Capture{
     // }
     // must give in a New piece clicked in order for it to give possible positions or else it would not work
 //}
-
 
 
 //    public void winCondition() {

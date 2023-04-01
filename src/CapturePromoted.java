@@ -53,7 +53,7 @@ public class CapturePromoted extends Capture {
     // r2 col3 to r0 col1 y-2 x-2
     @Override
     public boolean canCaptureLeftBlack(Checker[][] checkerPieces, Checker e) {
-        super.canCaptureLeftBlack(checkerPieces,e);
+        super.canCaptureLeftBlack(checkerPieces, e);
         if (checkerPieces[e.getPiecePositionX() - 2][e.getPiecePositionY() - 2].getColor().equals("")
                 && checkerPieces[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].getColor().equals("red")
                 && (e.getPiecePositionX() - 2 >= 0) && (e.getPiecePositionY() - 2 >= 0)) {
