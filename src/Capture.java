@@ -56,7 +56,7 @@ public class Capture{
     public boolean canCaptureLeftBlack(Checker[][] checkerPieces, Checker e){
         if((e.getPiecePositionX()+2 <= 7  && e.getPiecePositionY()-2 >=0)
                 && checkerPieces[e.getPiecePositionX()+2][e.getPiecePositionY()-2].getColor().equals("")
-                && checkerPieces[e.getPiecePositionX()+1][e.getPiecePositionX()-1].getColor().equals("red")){
+                && checkerPieces[e.getPiecePositionX()+1][e.getPiecePositionY()-1].getColor().equals("red")){
             legalMovesBlack.add((e.getPiecePositionX() + 2) * 10 + e.getPiecePositionY() - 2);
             return true;
         }
