@@ -34,9 +34,4 @@ public class Checker{
         this.color = color;
     }
 
-    public void setPiecePosition(int newX, int newY){
-        piecePositionX = newX;
-        piecePositionY = newY;
-    }
-
 }

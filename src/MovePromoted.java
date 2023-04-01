@@ -7,11 +7,19 @@ public class MovePromoted extends Move {
     public MovePromoted() {
     }
 
+    public ArrayList<Integer> getLegalMovesBlack(){
+        return legalMovesBlack;
+    }
+
+    public ArrayList<Integer> getLegalMovesRed(){
+        return legalMovesRed;
+    }
+
     @Override
     public boolean canMoveLeftBlack(Checker[][] checkerPieces, Checker e) {
 
         super.canMoveLeftBlack(checkerPieces, e);
-        if (e.getPiecePositionX() - 1 >= 0 || e.getPiecePositionX() - 1 >= 0) {
+        if (e.getPiecePositionX() - 1 >= 0 || e.getPiecePositionY() - 1 >= 0) {
             if (checkerPieces[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].getColor().equals("")
                     && !(checkerPieces[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].getColor().equals("black"))) {
                 legalMovesBlack.add(e.getPiecePositionX() * 10 + e.getPiecePositionY());

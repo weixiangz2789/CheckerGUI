@@ -16,6 +16,8 @@ public class CheckerGUI {
     private static final String COLS = "ABCDEFGH";
     private Move moves;
     private Capture capture;
+    private CapturePromoted capturePromoted;
+    private MovePromoted movePromoted;
     int rowIndex = -1;
     int colIndex = -1;
     private ImageIcon blank = new ImageIcon("blank.png");
@@ -31,6 +33,8 @@ public class CheckerGUI {
         initializeGui();
         moves = new Move();
         capture = new Capture();
+        capturePromoted = new CapturePromoted();
+        movePromoted = new MovePromoted();
     }
 
     public final void initializeGui() {
@@ -86,14 +90,26 @@ public class CheckerGUI {
                         Object source = e.getSource();
                         JButton clicked = (JButton) source;
                         String desc = ((ImageIcon) clicked.getIcon()).getDescription();
-                        if (desc.equals(red.getDescription()) || desc.equals(black.getDescription())) {
+                        if (desc.equals(red.getDescription()) || desc.equals(black.getDescription())
+                                || desc.equals(redKing.getDescription()) || desc.equals(blackKing.getDescription())) {
                             endMoves();
                             selected = checkerPieces[row][col];
-                            showMoves(checkerPieces[row][col]);
+                            if (selected.isPromoted()){
+                                System.out.println("PROMOTED");
+                                showPromotedMoves(checkerPieces[row][col]);
+                            }
+                            else{
+                                showMoves(checkerPieces[row][col]);
+                            }
                         }
                         if (desc.equals(blank.getDescription())) {
                             if (selected.getColor().equals("red")) {
-                                checkerBoardSquares[row][col].setIcon(red);
+                                if (selected.isPromoted()){
+                                    checkerBoardSquares[row][col].setIcon(redKing);
+                                }
+                                else{
+                                    checkerBoardSquares[row][col].setIcon(red);
+                                }
                                 if (capture.canCaptureLeftRed(checkerPieces, selected)
                                         && rowIndex == selected.getPiecePositionX() - 2 && colIndex == selected.getPiecePositionY() - 2) {
                                     checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setIcon(null);
@@ -108,7 +124,12 @@ public class CheckerGUI {
                                 }
                                 checkerPieces[row][col].setColor("red");
                             } else if (selected.getColor().equals("black")) {
-                                checkerBoardSquares[row][col].setIcon(black);
+                                if (selected.isPromoted()){
+                                    checkerBoardSquares[row][col].setIcon(blackKing);
+                                }
+                                else{
+                                    checkerBoardSquares[row][col].setIcon(black);
+                                }
                                 if (capture.canCaptureLeftBlack(checkerPieces, selected)
                                         && rowIndex == selected.getPiecePositionX() + 2 && colIndex == selected.getPiecePositionY() - 2) {
                                     checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setIcon(null);
@@ -215,16 +236,46 @@ public class CheckerGUI {
                 if (checkerPieces[row][col].getColor().equals("red")) {
                     if (row == 0) {
                         checkerBoardSquares[row][col].setIcon(redKing);
+                        checkerBoardSquares[row][col].setEnabled(true);
                         checkerPieces[row][col].setPromoted(true);
                     }
                 }
                 if (checkerPieces[row][col].getColor().equals("black")) {
                     if (row == 7) {
                         checkerBoardSquares[row][col].setIcon(blackKing);
+                        checkerBoardSquares[row][col].setEnabled(true);
                         checkerPieces[row][col].setPromoted(true);
                     }
                 }
             }
+        }
+    }
+
+    public void showPromotedMoves(Checker e) {
+        if (e.getColor().equals("red")){
+            if (movePromoted.canMoveLeftRed(checkerPieces, e)){
+                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].setEnabled(true);
+                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].setIcon(blank);
+            }
+            if (movePromoted.canMoveRightRed(checkerPieces, e)){
+                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].setEnabled(true);
+                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].setIcon(blank);
+            }
+        }
+        else if (e.getColor().equals("black")){
+            if (movePromoted.canMoveLeftBlack(checkerPieces, e)){
+                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setEnabled(true);
+                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setIcon(blank);
+            }
+            if (movePromoted.canMoveRightBlack(checkerPieces, e)){
+                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].setEnabled(true);
+                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].setIcon(blank);
+            }
+        }
+        ArrayList<Integer> temp = captureMoves(e);
+        for (int i = 0; i < temp.size(); i++) {
+            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
+            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
         }
     }
 
