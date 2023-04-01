@@ -83,38 +83,8 @@ public class Move {
         return blackMove;
     }
 
-//    public boolean winCondition(Checker[][] checkerPieces) {
-//        boolean allCanMove = false;
-//        for (int i = 0; i < 8; i++) {
-//            for (int y = 0; y < 8; y++) {
-//                if (blackMove) { //if it is black to move, check the legal moves for all black checkers
-//                    if (checkerPieces[i][y].getColor().equals("black")){
-//                        if(checkerPieces[i][y].isPromoted()) {
-//                            if ((movePromoted.canMoveLeftBlack(checkerPieces, checkerPieces[i][y]) && movePromoted.canMoveRightBlack
-//                                    (checkerPieces, checkerPieces[i][y])) || (capturePromoted.canCaptureLeftBlack
-//                                    (checkerPieces, checkerPieces[i][y]) && (capturePromoted.canCaptureRightBlack(checkerPieces, checkerPieces[i][y])))) { //if black piece has any regular moves
-//                                allCanMove = true;
-//                            }
-//                        } else if (canMoveLeftBlack(checkerPieces, checkerPieces[i][y]) && canMoveRightBlack(checkerPieces, checkerPieces[i][y])) {
-//                            allCanMove = true;
-//                        }
-//                    }
-//                } else if(checkerPieces[i][y].getColor().equals("red")) {
-//                    if(checkerPieces[i][y].isPromoted()){
-//                        if((movePromoted.canMoveLeftRed(checkerPieces, checkerPieces[i][y]) && movePromoted.canMoveRightRed
-//                                (checkerPieces, checkerPieces[i][y])) || (capturePromoted.canCaptureLeftRed
-//                                (checkerPieces, checkerPieces[i][y]) && (capturePromoted.canCaptureRightRed(checkerPieces, checkerPieces[i][y])))) {
-//                            allCanMove = true;
-//                        }
-//                    }
-//                    if (canMoveLeftRed(checkerPieces, checkerPieces[i][y]) && canMoveRightRed(checkerPieces, checkerPieces[i][y])) {
-//                        allCanMove = true;
-//                    }
-//                }
-//            }
-//        }
-//        return allCanMove;
-//}
+
+
 }
 
 

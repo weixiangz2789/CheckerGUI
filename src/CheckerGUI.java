@@ -31,7 +31,7 @@ public class CheckerGUI {
         initializeGui();
         moves = new Move();
         capture = new Capture();
-        capturePromoted = new CapturePromoted(0);
+        capturePromoted = new CapturePromoted();
         movePromoted = new MovePromoted();
     }
 
