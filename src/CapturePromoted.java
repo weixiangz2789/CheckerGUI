@@ -1,8 +1,8 @@
 public class CapturePromoted extends Capture {
-    private int piecesCaptured;
 
-    public CapturePromoted(int piecesCaptured) {
-        this.piecesCaptured = piecesCaptured;
+
+    public CapturePromoted() {
+        ;
     }
 
     @Override
@@ -62,14 +62,6 @@ public class CapturePromoted extends Capture {
             return true;
         }
         return false;
-    }
-
-    public int getPiecesCapturedCount(){
-        return piecesCaptured;
-    }
-
-    public void addCaptureCount(){
-        piecesCaptured++;
     }
 
 
