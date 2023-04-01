@@ -9,6 +9,14 @@ public class Move {
         blackMove = true;
     }
 
+    public ArrayList<Integer> getLegalMovesBlack() {
+        return legalMovesBlack;
+    }
+
+    public ArrayList<Integer> getLegalMovesRed() {
+        return legalMovesRed;
+    }
+
     public boolean canMoveLeftBlack(Checker[][] checkerPieces, Checker e) {
         if (e.getPiecePositionX() + 1 <= 7 && e.getPiecePositionY() - 1 >= 0) {
             if (checkerPieces[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].getColor().equals("")
