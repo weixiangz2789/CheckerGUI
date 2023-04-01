@@ -1,19 +1,7 @@
-import java.util.*;
-
 public class MovePromoted extends Move {
-//    private ArrayList<Integer> legalMovesBlack = new ArrayList<Integer>();
-//    private ArrayList<Integer> legalMovesRed = new ArrayList<Integer>();
 
     public MovePromoted() {
     }
-
-//    public ArrayList<Integer> getLegalMovesBlack(){
-//        return legalMovesBlack;
-//    }
-
-//    public ArrayList<Integer> getLegalMovesRed(){
-//        return legalMovesRed;
-//    }
 
     @Override
     public boolean canMoveLeftBlack(Checker[][] checkerPieces, Checker e) { //debug this portion
@@ -35,7 +23,7 @@ public class MovePromoted extends Move {
         if (e.getPiecePositionX() - 1 >= 0 || e.getPiecePositionY() + 1 <= 7) {
             if (checkerPieces[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].getColor().equals("")
                     && !(checkerPieces[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].getColor().equals("black"))) {
-                getLegalMovesBlack().add(e.getPiecePositionX() * 10 + e.getPiecePositionY());
+                getLegalMovesBlack().add((e.getPiecePositionX() - 1) * 10 + (e.getPiecePositionY() + 1));
                 return true;
             }
             return false;
@@ -70,6 +58,4 @@ public class MovePromoted extends Move {
         }
         return false;
     }
-
-
 }

@@ -2,9 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class CheckerGUI {
     private Color redBackground = new Color(255, 0, 0, 255);
@@ -18,8 +16,8 @@ public class CheckerGUI {
     private Capture capture;
     private CapturePromoted capturePromoted;
     private MovePromoted movePromoted;
-    int rowIndex = -1;
-    int colIndex = -1;
+    private int rowIndex = -1;
+    private int colIndex = -1;
     private ImageIcon blank = new ImageIcon("blank.png");
     private ImageIcon black = new ImageIcon("black.png");
     private ImageIcon red = new ImageIcon("red.png");
@@ -94,20 +92,32 @@ public class CheckerGUI {
                                 || desc.equals(redKing.getDescription()) || desc.equals(blackKing.getDescription())) {
                             endMoves();
                             selected = checkerPieces[row][col];
-                            if (selected.isPromoted()){
-                                System.out.println("PROMOTED");
+                            System.out.println(selected.getColor());
+                            if (selected.isPromoted()) {
                                 showPromotedMoves(checkerPieces[row][col]);
-                            }
-                            else{
+                            } else {
                                 showMoves(checkerPieces[row][col]);
                             }
                         }
                         if (desc.equals(blank.getDescription())) {
                             if (selected.getColor().equals("red")) {
-                                if (selected.isPromoted()){
+                                if (selected.isPromoted()) {
                                     checkerBoardSquares[row][col].setIcon(redKing);
-                                }
-                                else{
+                                    if (capturePromoted.canCaptureLeftRed(checkerPieces, selected)){
+                                        if (rowIndex == selected.getPiecePositionX() + 2 && colIndex == selected.getPiecePositionY() - 2){
+                                            checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setIcon(null);
+                                            checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setEnabled(false);
+                                            checkerPieces[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setColor("");
+                                        }
+                                    }
+                                    if (capturePromoted.canCaptureRightRed(checkerPieces, selected)){
+                                        if (rowIndex == selected.getPiecePositionX() + 2 && colIndex == selected.getPiecePositionY() + 2){
+                                            checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setIcon(null);
+                                            checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setEnabled(false);
+                                            checkerPieces[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setColor("");
+                                        }
+                                    }
+                                } else {
                                     checkerBoardSquares[row][col].setIcon(red);
                                 }
                                 if (capture.canCaptureLeftRed(checkerPieces, selected)
@@ -124,10 +134,23 @@ public class CheckerGUI {
                                 }
                                 checkerPieces[row][col].setColor("red");
                             } else if (selected.getColor().equals("black")) {
-                                if (selected.isPromoted()){
+                                if (selected.isPromoted()) {
                                     checkerBoardSquares[row][col].setIcon(blackKing);
-                                }
-                                else{
+                                    if (capturePromoted.canCaptureLeftBlack(checkerPieces, selected)){
+                                        if (rowIndex == selected.getPiecePositionX() - 2 && colIndex == selected.getPiecePositionY() - 2){
+                                            checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setIcon(null);
+                                            checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setEnabled(false);
+                                            checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setColor("");
+                                        }
+                                    }
+                                    if (capturePromoted.canCaptureRightBlack(checkerPieces, selected)){
+                                        if (rowIndex == selected.getPiecePositionX() - 2 && colIndex == selected.getPiecePositionY() + 2){
+                                            checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setIcon(null);
+                                            checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setEnabled(false);
+                                            checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setColor("");
+                                        }
+                                    }
+                                } else {
                                     checkerBoardSquares[row][col].setIcon(black);
                                 }
                                 if (capture.canCaptureLeftBlack(checkerPieces, selected)
@@ -147,7 +170,7 @@ public class CheckerGUI {
                             turnNum++;
                             switchTurns();
                             checkerPieces[row][col].setColor(selected.getColor());
-                            if (selected.isPromoted()){
+                            if (selected.isPromoted()) {
                                 checkerPieces[selected.getPiecePositionX()][selected.getPiecePositionY()].setPromoted(false);
                                 checkerPieces[row][col].setPromoted(true);
 
@@ -196,7 +219,9 @@ public class CheckerGUI {
             moves.switchTurns();
         }
         moves.resetMoves();
+        movePromoted.resetMoves();
         capture.resetMoves();
+        capturePromoted.resetMoves();
     }
 
     private void switchTurns() {
@@ -260,85 +285,75 @@ public class CheckerGUI {
     }
 
     public void showPromotedMoves(Checker e) {
-        if (e.getColor().equals("red")){
-            if (movePromoted.canMoveLeftRed(checkerPieces, e)){
-                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].setEnabled(true);
-                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].setIcon(blank);
-                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setEnabled(true);
-                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setIcon(blank);
-            }
-            if (movePromoted.canMoveRightRed(checkerPieces, e)){
-                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].setEnabled(true);
-                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].setIcon(blank);
-                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].setEnabled(true);
-                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].setIcon(blank);
-            }
-        }
-        else if (e.getColor().equals("black")){
-            if (movePromoted.canMoveLeftBlack(checkerPieces, e)){
-                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setEnabled(true);
-                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setIcon(blank);
-                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].setEnabled(true);
-                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].setIcon(blank);
-            }
-            if (movePromoted.canMoveRightBlack(checkerPieces, e)){
-                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].setEnabled(true);
-                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].setIcon(blank);
-                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].setEnabled(true);
-                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].setIcon(blank);
-
-            }
-        }
-//        ArrayList<Integer> temp = moves.getLegalMovesBlack();
-//        for (int i = 0; i < temp.size(); i++) {
-//            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
-//            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
-//        }
-//        ArrayList<Integer> temp = captureMoves(e);
-//        for (int i = 0; i < temp.size(); i++) {
-//            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
-//            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
-//        }
-    }
-
-    public void showMoves(Checker e) {
+        ArrayList<Integer> temp = new ArrayList<>();
         if (e.getColor().equals("red")) {
-            if (moves.canMoveLeftRed(checkerPieces, e)) {
-                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setEnabled(true);
-                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setIcon(blank);
-            }
-            if (moves.canMoveRightRed(checkerPieces, e)) {
-                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].setEnabled(true);
-                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].setIcon(blank);
-            }
+            movePromoted.canMoveRightRed(checkerPieces, e);
+            movePromoted.canMoveLeftRed(checkerPieces, e);
+            temp = movePromoted.getLegalMovesBlack();
         } else if (e.getColor().equals("black")) {
-            if (moves.canMoveLeftBlack(checkerPieces, e)) {
-                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].setEnabled(true);
-                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].setIcon(blank);
-            }
-            if (moves.canMoveRightBlack(checkerPieces, e)) {
-                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].setEnabled(true);
-                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].setIcon(blank);
-            }
+            movePromoted.canMoveLeftBlack(checkerPieces, e);
+            movePromoted.canMoveRightBlack(checkerPieces, e);
+            temp = movePromoted.getLegalMovesBlack();
         }
-        ArrayList<Integer> temp = captureMoves(e);
         for (int i = 0; i < temp.size(); i++) {
             checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
             checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
         }
+        temp = captureMoves(e);
+        System.out.println(temp.size());
+        for (int i = 0; i < temp.size(); i++) {
+            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
+            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
+        }
+    }
 
+    public void showMoves(Checker e) {
+        ArrayList<Integer> temp = new ArrayList<>();
+        if (e.getColor().equals("red")) {
+            moves.canMoveLeftRed(checkerPieces, e);
+            moves.canMoveRightRed(checkerPieces, e);
+            temp = moves.getLegalMovesRed();
+        } else if (e.getColor().equals("black")) {
+            moves.canMoveLeftBlack(checkerPieces, e);
+            moves.canMoveRightBlack(checkerPieces, e);
+            temp = moves.getLegalMovesBlack();
+        }
+        for (int i = 0; i < temp.size(); i++) {
+            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
+            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
+        }
+        temp = captureMoves(e);
+        for (int i = 0; i < temp.size(); i++) {
+            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
+            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
+        }
     }
 
     public ArrayList<Integer> captureMoves(Checker e) {
         ArrayList<Integer> legalMoves = new ArrayList<>();
         if (e.getColor().equals("red")) {
-            capture.canCaptureLeftRed(checkerPieces, e);
-            capture.canCaptureRightRed(checkerPieces, e);
-            legalMoves = capture.getLegalMovesRed();
+            if (e.isPromoted) {
+                capturePromoted.canCaptureLeftRed(checkerPieces, e);
+                capturePromoted.canCaptureRightRed(checkerPieces, e);
+                legalMoves = capturePromoted.getLegalMovesRed();
+            } else {
+                capture.canCaptureLeftRed(checkerPieces, e);
+                capture.canCaptureRightRed(checkerPieces, e);
+                legalMoves = capture.getLegalMovesRed();
+            }
         } else if (e.getColor().equals("black")) {
-            capture.canCaptureLeftBlack(checkerPieces, e);
-            capture.canCaptureRightBlack(checkerPieces, e);
-            legalMoves = capture.getLegalMovesBlack();
+            if (e.isPromoted) {
+//                System.out.println(capturePromoted.canCaptureLeftBlack(checkerPieces, e));
+//                System.out.println(capturePromoted.canCaptureRightRed(checkerPieces, e));
+//                capturePromoted.resetMoves();
+                capturePromoted.canCaptureLeftBlack(checkerPieces, e);
+                capturePromoted.canCaptureRightBlack(checkerPieces, e);
+                legalMoves = capturePromoted.getLegalMovesBlack();
+            } else {
+                capture.canCaptureLeftBlack(checkerPieces, e);
+                capture.canCaptureRightBlack(checkerPieces, e);
+                legalMoves = capture.getLegalMovesBlack();
+            }
         }
         return legalMoves;
     }

@@ -21,7 +21,7 @@ public class Move {
         if (e.getPiecePositionX() + 1 <= 7 && e.getPiecePositionY() - 1 >= 0) {
             if (checkerPieces[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].getColor().equals("")
                     && !(checkerPieces[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].getColor().equals("black"))) {
-                legalMovesBlack.add(e.getPiecePositionX() * 10 + e.getPiecePositionY());
+                legalMovesBlack.add((e.getPiecePositionX() + 1) * 10 + (e.getPiecePositionY() - 1));
                 return true;
             }
             return false;
@@ -33,7 +33,7 @@ public class Move {
         if (e.getPiecePositionX() + 1 <= 7 && e.getPiecePositionY() + 1 <= 7) {
             if (checkerPieces[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].getColor().equals("")
                     && !(checkerPieces[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].getColor().equals("black"))) {
-                legalMovesBlack.add(e.getPiecePositionX() * 10 + e.getPiecePositionY());
+                legalMovesBlack.add((e.getPiecePositionX() + 1) * 10 + (e.getPiecePositionY() + 1));
                 return true;
             }
             return false;
@@ -45,7 +45,7 @@ public class Move {
         if (e.getPiecePositionX() - 1 >= 0 && e.getPiecePositionY() - 1 >= 0) {
             if (checkerPieces[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].getColor().equals("")
                     && !(checkerPieces[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].getColor().equals("red"))) {
-                legalMovesRed.add(e.getPiecePositionX() * 10 + e.getPiecePositionY());
+                legalMovesRed.add((e.getPiecePositionX() - 1) * 10 + (e.getPiecePositionY() - 1));
                 return true;
             }
             return false;
@@ -57,7 +57,7 @@ public class Move {
         if (e.getPiecePositionX() - 1 >= 0 && e.getPiecePositionY() + 1 <= 7) {
             if (checkerPieces[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].getColor().equals("")
                     && !(checkerPieces[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].getColor().equals("red"))) {
-                legalMovesRed.add((e.getPiecePositionX() * 10) + e.getPiecePositionY());
+                legalMovesRed.add((e.getPiecePositionX() - 1) * 10 + (e.getPiecePositionY() + 1));
                 return true;
             }
             return false;
