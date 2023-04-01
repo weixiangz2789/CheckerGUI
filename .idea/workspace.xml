@@ -7,10 +7,7 @@
     <list default="true" id="992dcbd3-9591-453e-9623-f9e29da54f31" name="Changes" comment="w">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CapturePromoted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CapturePromoted.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CheckerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CheckerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovePromoted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovePromoted.java" afterDir="false" />
     </list>
     <list id="613ac935-c963-4b13-9473-8a421e3bfa4a" name="Changes by adam" comment="" />
     <list id="b11d7b23-5473-4aac-806e-3b6754b70b68" name="Changes by Connie" comment="" />
@@ -230,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680374181835</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="w">
+      <created>1680379509358</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1680379509358</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -7,7 +7,8 @@ public class CapturePromoted extends Capture {
         super.canCaptureLeftRed(checkerPieces, e); // checks forward moves and adds to arraylist
         // check what legal backward moves there are using similar logic to capture
         // class
-        if (checkerPieces[e.getPiecePositionX() + 2][e.getPiecePositionY() - 2].getColor().equals("")
+        if ((e.getPiecePositionX() - 2 >= 0 && e.getPiecePositionY() - 2 >= 0)
+                && checkerPieces[e.getPiecePositionX() + 2][e.getPiecePositionY() - 2].getColor().equals("")
                 && checkerPieces[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].getColor().equals("black")
                 && (e.getPiecePositionX() + 2 <= 7) && (e.getPiecePositionY() - 2 >= 0)) {
 
@@ -21,7 +22,8 @@ public class CapturePromoted extends Capture {
     @Override
     public boolean canCaptureRightRed(Checker[][] checkerPieces, Checker e) {
         super.canCaptureRightRed(checkerPieces, e);
-        if (checkerPieces[e.getPiecePositionX() + 2][e.getPiecePositionY() + 2].getColor().equals("")
+        if ((e.getPiecePositionX() + 2 <= 7) && (e.getPiecePositionY() + 2 <= 7)
+                && checkerPieces[e.getPiecePositionX() + 2][e.getPiecePositionY() + 2].getColor().equals("")
                 && checkerPieces[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].getColor().equals("black")
                 && (e.getPiecePositionX() + 2 <= 7) && (e.getPiecePositionY() + 2 <= 7)) {
             getLegalMovesRed().add((e.getPiecePositionX() + 2) * 10 + e.getPiecePositionY() + 2);
@@ -34,7 +36,7 @@ public class CapturePromoted extends Capture {
     // r2 c3 to r0 c5
     public boolean canCaptureRightBlack(Checker[][] checkerPieces, Checker e) {
         super.canCaptureRightBlack(checkerPieces, e);
-        if ((e.getPiecePositionX() - 2 >= 0 && (e.getPiecePositionY() + 2 <= 7))
+        if ((e.getPiecePositionX() - 2 >= 0  && (e.getPiecePositionY() + 2 <= 7))
                 && checkerPieces[e.getPiecePositionX() - 2][e.getPiecePositionY() + 2].getColor().equals("")
                 && checkerPieces[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].getColor().equals("red")
                 && (e.getPiecePositionX() - 2 >= 0) && (e.getPiecePositionY() + 2 <= 7)) {

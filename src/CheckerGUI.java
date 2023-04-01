@@ -92,7 +92,6 @@ public class CheckerGUI {
                                 || desc.equals(redKing.getDescription()) || desc.equals(blackKing.getDescription())) {
                             endMoves();
                             selected = checkerPieces[row][col];
-                            System.out.println(selected.getColor());
                             if (selected.isPromoted()) {
                                 showPromotedMoves(checkerPieces[row][col]);
                             } else {
@@ -300,7 +299,6 @@ public class CheckerGUI {
             checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
         }
         temp = captureMoves(e);
-        System.out.println(temp.size());
         for (int i = 0; i < temp.size(); i++) {
             checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
             checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
@@ -343,9 +341,6 @@ public class CheckerGUI {
             }
         } else if (e.getColor().equals("black")) {
             if (e.isPromoted) {
-//                System.out.println(capturePromoted.canCaptureLeftBlack(checkerPieces, e));
-//                System.out.println(capturePromoted.canCaptureRightRed(checkerPieces, e));
-//                capturePromoted.resetMoves();
                 capturePromoted.canCaptureLeftBlack(checkerPieces, e);
                 capturePromoted.canCaptureRightBlack(checkerPieces, e);
                 legalMoves = capturePromoted.getLegalMovesBlack();
