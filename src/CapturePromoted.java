@@ -61,4 +61,4 @@ public class CapturePromoted extends Capture {
         return false;
     }
 }
-//// finish capturepromoted & movepromoted classes
+

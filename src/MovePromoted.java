@@ -58,4 +58,6 @@ public class MovePromoted extends Move {
         }
         return false;
     }
+
+
 }

@@ -65,18 +65,6 @@ public class Move {
         return false;
     }
 
-    public boolean onLastRank(Checker e) {
-        if (e.getColor().equals("black") && e.getPiecePositionY() == 7) {
-            e.setPromoted(true);
-            return true;
-        } else if (e.getColor().equals("red") && e.getPiecePositionY() == 0) {
-            e.setPromoted(true);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public void switchTurns() {
 
         if (blackMove == false) {
