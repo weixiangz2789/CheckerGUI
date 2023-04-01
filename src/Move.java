@@ -12,7 +12,7 @@ public class Move{
     }
 
     public boolean canMoveLeftBlack(Checker[][] checkerPieces, Checker e){
-        if(e.getPiecePositionX()-1 >= 0 && e.getPiecePositionY()-1 >= 0){
+        if(e.getPiecePositionX()+1 <= 7 && e.getPiecePositionY()-1 >= 0){
             if(checkerPieces[e.getPiecePositionX()+1][e.getPiecePositionY()-1].getColor().equals("")
                     && !(checkerPieces[e.getPiecePositionX()+1][e.getPiecePositionY()-1].getColor().equals("black"))){
                 legalMovesBlack.add(e.getPiecePositionX() * 10 + e.getPiecePositionY());
@@ -35,7 +35,7 @@ public class Move{
     }
 
     public boolean canMoveLeftRed(Checker[][] checkerPieces, Checker e){
-        if(e.getPiecePositionX()-1 >= 0 && e.getPiecePositionY() > 1){
+        if(e.getPiecePositionX()-1 >= 0 && e.getPiecePositionY() - 1 >=0){
             if(checkerPieces[e.getPiecePositionX()-1][e.getPiecePositionY()-1].getColor().equals("")
                     && !(checkerPieces[e.getPiecePositionX()-1][e.getPiecePositionY()-1].getColor().equals("red"))){
                 legalMovesRed.add(e.getPiecePositionX() * 10 + e.getPiecePositionY());
