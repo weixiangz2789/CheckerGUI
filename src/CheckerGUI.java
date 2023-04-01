@@ -21,6 +21,8 @@ public class CheckerGUI {
     private ImageIcon blank = new ImageIcon("blank.png");
     private ImageIcon black = new ImageIcon("black.png");
     private ImageIcon red = new ImageIcon("red.png");
+    private ImageIcon blackKing = new ImageIcon("blackKing.png");
+    private ImageIcon redKing = new ImageIcon("redKing.png");
     private Checker selected;
     private int turnNum = 1;
 
@@ -79,6 +81,7 @@ public class CheckerGUI {
                     public void actionPerformed(ActionEvent e) {
                         rowIndex = row;
                         colIndex = col;
+                        promote();
                         showMoves(checkerPieces[row][col]);
                         Object source = e.getSource();
                         JButton clicked = (JButton) source;
@@ -172,11 +175,16 @@ public class CheckerGUI {
     }
 
     private void switchTurns() {
+        promote();
         if(turnNum%2 != 0) {
             for(int row = 0; row < 8; row ++) {
                 for(int col = 0; col < 8; col ++) {
                     if(checkerPieces[row][col].getColor().equals("red")) {
-                        checkerBoardSquares[row][col].setDisabledIcon(red);
+                        if(checkerPieces[row][col].isPromoted()) {
+                            checkerBoardSquares[row][col].setDisabledIcon(redKing);
+                        } else {
+                            checkerBoardSquares[row][col].setDisabledIcon(red);
+                        }
                         checkerBoardSquares[row][col].setEnabled(false);
                     }
                     if(checkerPieces[row][col].getColor().equals("black")) {
@@ -188,11 +196,34 @@ public class CheckerGUI {
             for(int row = 0; row < 8; row ++) {
                 for(int col = 0; col < 8; col ++) {
                     if(checkerPieces[row][col].getColor().equals("black")) {
-                        checkerBoardSquares[row][col].setDisabledIcon(black);
+                        if(checkerPieces[row][col].isPromoted()) {
+                            checkerBoardSquares[row][col].setDisabledIcon(blackKing);
+                        }else {
+                            checkerBoardSquares[row][col].setDisabledIcon(black);
+                        }
                         checkerBoardSquares[row][col].setEnabled(false);
                     }
                     if(checkerPieces[row][col].getColor().equals("red")) {
                         checkerBoardSquares[row][col].setEnabled(true);
+                    }
+                }
+            }
+        }
+    }
+
+    private void promote() {
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                if (checkerPieces[row][col].getColor().equals("red")) {
+                    if (row == 0) {
+                        checkerBoardSquares[row][col].setIcon(redKing);
+                        checkerPieces[row][col].setPromoted(true);
+                    }
+                }
+                if (checkerPieces[row][col].getColor().equals("black")) {
+                    if (row == 7) {
+                        checkerBoardSquares[row][col].setIcon(blackKing);
+                        checkerPieces[row][col].setPromoted(true);
                     }
                 }
             }
