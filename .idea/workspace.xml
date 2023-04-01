@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="992dcbd3-9591-453e-9623-f9e29da54f31" name="Changes" comment="w">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CheckerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CheckerGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovePromoted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovePromoted.java" afterDir="false" />
     </list>
@@ -14,13 +13,14 @@
     <list id="b11d7b23-5473-4aac-806e-3b6754b70b68" name="Changes by Connie" comment="" />
     <list id="36332bf9-2fc5-4802-a0d6-8e9f98339ebd" name="Changes by Jennifer" comment="" />
     <list id="6eb685ef-5b17-4d67-9133-917ac1124864" name="Changes by Pushe" comment="Changes by Pushe">
-      <change beforePath="$PROJECT_DIR$/src/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CheckerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CheckerGUI.java" afterDir="false" />
+    </list>
+    <list id="663e4878-e34d-4971-aec6-31dce9fb8f4c" name="Changes by snapc" comment="">
+      <change beforePath="$PROJECT_DIR$/src/CapturePromoted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CapturePromoted.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovePromoted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovePromoted.java" afterDir="false" />
     </list>
     <list id="8936aa98-4395-40bb-b299-deedfe678643" name="Changes by student" comment="" />
-    <list id="de2a97db-40e4-42d9-b223-3ffee388d01a" name="Changes by zhimi" comment="">
-      <change beforePath="$PROJECT_DIR$/src/MovePromoted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovePromoted.java" afterDir="false" />
-    </list>
+    <list id="289e40d5-d585-4183-82b2-0dd31168762b" name="Changes by zhimi" comment="" />
     <list id="fc56b597-27cc-48ab-ab02-7486cace924a" name="Changes by zhimin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,17 +38,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/CheckerGUI.java">
+      <ranges>
+        <range start1="149" end1="149" start2="149" end2="154" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
+        <range start1="202" end1="202" start2="207" end2="208" changelist="6eb685ef-5b17-4d67-9133-917ac1124864" />
+        <range start1="218" end1="218" start2="224" end2="225" changelist="6eb685ef-5b17-4d67-9133-917ac1124864" />
+      </ranges>
+    </file>
     <file path="$PROJECT_DIR$/src/MovePromoted.java">
       <ranges>
-        <range start1="9" end1="9" start2="9" end2="17" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
-        <range start1="13" end1="14" start2="21" end2="22" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
-        <range start1="16" end1="17" start2="24" end2="25" changelist="6eb685ef-5b17-4d67-9133-917ac1124864" />
-        <range start1="27" end1="28" start2="35" end2="36" changelist="de2a97db-40e4-42d9-b223-3ffee388d01a" />
-        <range start1="30" end1="31" start2="38" end2="39" changelist="6eb685ef-5b17-4d67-9133-917ac1124864" />
-        <range start1="41" end1="42" start2="49" end2="50" changelist="de2a97db-40e4-42d9-b223-3ffee388d01a" />
-        <range start1="44" end1="45" start2="52" end2="53" changelist="6eb685ef-5b17-4d67-9133-917ac1124864" />
-        <range start1="55" end1="56" start2="63" end2="64" changelist="de2a97db-40e4-42d9-b223-3ffee388d01a" />
-        <range start1="58" end1="59" start2="66" end2="67" changelist="6eb685ef-5b17-4d67-9133-917ac1124864" />
+        <range start1="9" end1="12" start2="9" end2="12" changelist="663e4878-e34d-4971-aec6-31dce9fb8f4c" />
+        <range start1="13" end1="16" start2="13" end2="16" changelist="663e4878-e34d-4971-aec6-31dce9fb8f4c" />
+        <range start1="20" end1="21" start2="20" end2="21" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
+        <range start1="62" end1="63" start2="62" end2="63" changelist="663e4878-e34d-4971-aec6-31dce9fb8f4c" />
       </ranges>
     </file>
   </component>
@@ -211,7 +213,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680312201984</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="w">
+      <created>1680315562614</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680315562614</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Changes by Pushe">
+      <created>1680315569330</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680315569330</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Changes by zhimi">
+      <created>1680315575631</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1680315575631</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,10 +249,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="w" />
     <MESSAGE value="Changes by Pushe" />
     <MESSAGE value="Changes by zhimi" />
-    <MESSAGE value="w" />
-    <option name="LAST_COMMIT_MESSAGE" value="w" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by zhimi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

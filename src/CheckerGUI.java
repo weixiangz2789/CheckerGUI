@@ -147,6 +147,11 @@ public class CheckerGUI {
                             turnNum++;
                             switchTurns();
                             checkerPieces[row][col].setColor(selected.getColor());
+                            if (selected.isPromoted()){
+                                checkerPieces[selected.getPiecePositionX()][selected.getPiecePositionY()].setPromoted(false);
+                                checkerPieces[row][col].setPromoted(true);
+
+                            }
                             checkerPieces[selected.getPiecePositionX()][selected.getPiecePositionY()].setColor("");
                             checkerBoardSquares[selected.getPiecePositionX()][selected.getPiecePositionY()].setIcon(null);
                             checkerBoardSquares[selected.getPiecePositionX()][selected.getPiecePositionY()].setEnabled(false);
