@@ -1,6 +1,9 @@
 public class CapturePromoted extends Capture {
+    private int piecesCaptured;
 
-    public CapturePromoted() {}
+    public CapturePromoted(int piecesCaptured) {
+        this.piecesCaptured = piecesCaptured;
+    }
 
     @Override
     public boolean canCaptureLeftRed(Checker[][] checkerPieces, Checker e) {
@@ -60,5 +63,15 @@ public class CapturePromoted extends Capture {
         }
         return false;
     }
+
+    public int getPiecesCapturedCount(){
+        return piecesCaptured;
+    }
+
+    public void addCaptureCount(){
+        piecesCaptured++;
+    }
+
+
 }
 
