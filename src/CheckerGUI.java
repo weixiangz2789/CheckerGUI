@@ -205,6 +205,7 @@ public class CheckerGUI {
                 for (int col = 0; col < 8; col++) {
                     if (checkerPieces[row][col].getColor().equals("red")) {
                         if (checkerPieces[row][col].isPromoted()) {
+                            checkerBoardSquares[row][col].setIcon(redKing);
                             checkerBoardSquares[row][col].setDisabledIcon(redKing);
                         } else {
                             checkerBoardSquares[row][col].setDisabledIcon(red);
@@ -221,6 +222,7 @@ public class CheckerGUI {
                 for (int col = 0; col < 8; col++) {
                     if (checkerPieces[row][col].getColor().equals("black")) {
                         if (checkerPieces[row][col].isPromoted()) {
+                            checkerBoardSquares[row][col].setIcon(blackKing);
                             checkerBoardSquares[row][col].setDisabledIcon(blackKing);
                         } else {
                             checkerBoardSquares[row][col].setDisabledIcon(black);
