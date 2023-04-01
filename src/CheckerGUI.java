@@ -308,25 +308,27 @@ public class CheckerGUI {
     }
 
     public void showMoves(Checker e) {
-        ArrayList<Integer> temp = new ArrayList<>();
-        if (e.getColor().equals("red")) {
-            moves.canMoveLeftRed(checkerPieces, e);
-            moves.canMoveRightRed(checkerPieces, e);
-            temp = moves.getLegalMovesRed();
-        } else if (e.getColor().equals("black")) {
-            moves.canMoveLeftBlack(checkerPieces, e);
-            moves.canMoveRightBlack(checkerPieces, e);
-            temp = moves.getLegalMovesBlack();
-        }
-        for (int i = 0; i < temp.size(); i++) {
-            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
-            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
-        }
-        temp = captureMoves(e);
-        for (int i = 0; i < temp.size(); i++) {
-            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
-            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
-        }
+//        if (movePromoted.winCondition(checkerPieces)) {
+            ArrayList<Integer> temp = new ArrayList<>();
+            if (e.getColor().equals("red")) {
+                moves.canMoveLeftRed(checkerPieces, e);
+                moves.canMoveRightRed(checkerPieces, e);
+                temp = moves.getLegalMovesRed();
+            } else if (e.getColor().equals("black")) {
+                moves.canMoveLeftBlack(checkerPieces, e);
+                moves.canMoveRightBlack(checkerPieces, e);
+                temp = moves.getLegalMovesBlack();
+            }
+            for (int i = 0; i < temp.size(); i++) {
+                checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
+                checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
+            }
+            temp = captureMoves(e);
+            for (int i = 0; i < temp.size(); i++) {
+                checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
+                checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
+            }
+//        }
     }
 
     public ArrayList<Integer> captureMoves(Checker e) {
