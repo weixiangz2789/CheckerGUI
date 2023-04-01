@@ -16,7 +16,6 @@ public class CapturePromoted extends Capture {
                 && checkerPieces[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].getColor().equals("black")
                 && (e.getPiecePositionX() + 2 <= 7) && (e.getPiecePositionY() - 2 >= 0)) {
 
-
             getLegalMovesRed().add((e.getPiecePositionX() + 2) * 10 + e.getPiecePositionY() - 2);
             return true;
         }
