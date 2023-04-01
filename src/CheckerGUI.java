@@ -101,6 +101,7 @@ public class CheckerGUI {
                         if (desc.equals(blank.getDescription())) {
                             if (selected.getColor().equals("red")) {
                                 if (selected.isPromoted()) {
+                                    checkerPieces[row][col].setPromoted(true);
                                     checkerBoardSquares[row][col].setIcon(redKing);
                                     if (capturePromoted.canCaptureLeftRed(checkerPieces, selected)){
                                         if (rowIndex == selected.getPiecePositionX() + 2 && colIndex == selected.getPiecePositionY() - 2){
@@ -116,7 +117,7 @@ public class CheckerGUI {
                                             checkerPieces[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setColor("");
                                         }
                                     }
-                                } else {
+                                }else {
                                     checkerBoardSquares[row][col].setIcon(red);
                                 }
                                 if (capture.canCaptureLeftRed(checkerPieces, selected)
@@ -134,6 +135,7 @@ public class CheckerGUI {
                                 checkerPieces[row][col].setColor("red");
                             } else if (selected.getColor().equals("black")) {
                                 if (selected.isPromoted()) {
+                                    checkerPieces[row][col].setPromoted(true);
                                     checkerBoardSquares[row][col].setIcon(blackKing);
                                     if (capturePromoted.canCaptureLeftBlack(checkerPieces, selected)){
                                         if (rowIndex == selected.getPiecePositionX() - 2 && colIndex == selected.getPiecePositionY() - 2){
@@ -288,7 +290,7 @@ public class CheckerGUI {
         if (e.getColor().equals("red")) {
             movePromoted.canMoveRightRed(checkerPieces, e);
             movePromoted.canMoveLeftRed(checkerPieces, e);
-            temp = movePromoted.getLegalMovesBlack();
+            temp = movePromoted.getLegalMovesRed();
         } else if (e.getColor().equals("black")) {
             movePromoted.canMoveLeftBlack(checkerPieces, e);
             movePromoted.canMoveRightBlack(checkerPieces, e);
