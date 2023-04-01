@@ -195,6 +195,7 @@ public class CheckerGUI {
             }
             moves.switchTurns();
         }
+        moves.resetMoves();
         capture.resetMoves();
     }
 
@@ -263,27 +264,41 @@ public class CheckerGUI {
             if (movePromoted.canMoveLeftRed(checkerPieces, e)){
                 checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].setEnabled(true);
                 checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].setIcon(blank);
+                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setEnabled(true);
+                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setIcon(blank);
             }
             if (movePromoted.canMoveRightRed(checkerPieces, e)){
                 checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].setEnabled(true);
                 checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].setIcon(blank);
+                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].setEnabled(true);
+                checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].setIcon(blank);
             }
         }
         else if (e.getColor().equals("black")){
             if (movePromoted.canMoveLeftBlack(checkerPieces, e)){
                 checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setEnabled(true);
                 checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setIcon(blank);
+                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].setEnabled(true);
+                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].setIcon(blank);
             }
             if (movePromoted.canMoveRightBlack(checkerPieces, e)){
                 checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].setEnabled(true);
                 checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() + 1].setIcon(blank);
+                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].setEnabled(true);
+                checkerBoardSquares[e.getPiecePositionX() + 1][e.getPiecePositionY() + 1].setIcon(blank);
+
             }
         }
-        ArrayList<Integer> temp = captureMoves(e);
-        for (int i = 0; i < temp.size(); i++) {
-            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
-            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
-        }
+//        ArrayList<Integer> temp = moves.getLegalMovesBlack();
+//        for (int i = 0; i < temp.size(); i++) {
+//            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
+//            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
+//        }
+//        ArrayList<Integer> temp = captureMoves(e);
+//        for (int i = 0; i < temp.size(); i++) {
+//            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setEnabled(true);
+//            checkerBoardSquares[temp.get(i) / 10][temp.get(i) % 10].setIcon(blank);
+//        }
     }
 
     public void showMoves(Checker e) {

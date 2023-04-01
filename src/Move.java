@@ -86,6 +86,11 @@ public class Move {
         }
     }
 
+    public void resetMoves() {
+        legalMovesRed = new ArrayList<>();
+        legalMovesBlack = new ArrayList<>();
+    }
+
     public boolean isBlackMove() {
         return blackMove;
     }
