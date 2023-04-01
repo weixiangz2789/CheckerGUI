@@ -108,6 +108,7 @@ public class CheckerGUI {
                                             checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setIcon(null);
                                             checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setEnabled(false);
                                             checkerPieces[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setColor("");
+                                            checkerPieces[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setPromoted(false);
                                         }
                                     }
                                     if (capturePromoted.canCaptureRightRed(checkerPieces, selected)){
@@ -115,6 +116,7 @@ public class CheckerGUI {
                                             checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setIcon(null);
                                             checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setEnabled(false);
                                             checkerPieces[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setColor("");
+                                            checkerPieces[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setPromoted(false);
                                         }
                                     }
                                 }else {
@@ -125,12 +127,14 @@ public class CheckerGUI {
                                     checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setIcon(null);
                                     checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setEnabled(false);
                                     checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setColor("");
+                                    checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setPromoted(false);
                                 }
                                 if (capture.canCaptureRightRed(checkerPieces, selected)
                                         && rowIndex == selected.getPiecePositionX() - 2 && colIndex == selected.getPiecePositionY() + 2) {
                                     checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setIcon(null);
                                     checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setEnabled(false);
                                     checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setColor("");
+                                    checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setPromoted(false);
                                 }
                                 checkerPieces[row][col].setColor("red");
                             } else if (selected.getColor().equals("black")) {
@@ -142,6 +146,7 @@ public class CheckerGUI {
                                             checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setIcon(null);
                                             checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setEnabled(false);
                                             checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setColor("");
+                                            checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() - 1].setPromoted(false);
                                         }
                                     }
                                     if (capturePromoted.canCaptureRightBlack(checkerPieces, selected)){
@@ -149,6 +154,7 @@ public class CheckerGUI {
                                             checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setIcon(null);
                                             checkerBoardSquares[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setEnabled(false);
                                             checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setColor("");
+                                            checkerPieces[selected.getPiecePositionX() - 1][selected.getPiecePositionY() + 1].setPromoted(false);
                                         }
                                     }
                                 } else {
@@ -159,12 +165,14 @@ public class CheckerGUI {
                                     checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setIcon(null);
                                     checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setEnabled(false);
                                     checkerPieces[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setColor("");
+                                    checkerPieces[selected.getPiecePositionX() + 1][selected.getPiecePositionY() - 1].setPromoted(false);
                                 }
                                 if (capture.canCaptureRightBlack(checkerPieces, selected)
                                         && rowIndex == selected.getPiecePositionX() + 2 && colIndex == selected.getPiecePositionY() + 2) {
                                     checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setIcon(null);
                                     checkerBoardSquares[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setEnabled(false);
                                     checkerPieces[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setColor("");
+                                    checkerPieces[selected.getPiecePositionX() + 1][selected.getPiecePositionY() + 1].setPromoted(false);
                                 }
                                 checkerPieces[row][col].setColor("black");
                             }
