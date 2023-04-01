@@ -229,37 +229,7 @@ public class CheckerGUI {
     }
 
     public void showMoves(Checker e) {
-
-//        System.out.println("CAN Capture right red " + capture.canCaptureRightRed(checkerPieces, e));
-//        System.out.println("CAN Capture left red " + capture.canCaptureLeftRed(checkerPieces, e));
-//        System.out.println("CAN Capture right black " + capture.canCaptureRightBlack(checkerPieces, e));
-//        System.out.println("CAN Capture left black " + capture.canCaptureLeftBlack(checkerPieces, e));
-//        if (moves.isBlackMove()) {
-//           disc
-//           for (int i = 0; i < 8; i++) {
-//                for (int j = 0; j < 8; j++) {
-//                    if (checkerPieces[i][j].getColor().equals("red")) {
-//                        checkerBoardSquares[i][j].setEnabled(false);
-//                    }
-//                    if (checkerPieces[i][j].getColor().equals("black")) {
-//                        checkerBoardSquares[i][j].setEnabled(true);
-//                    }
-//                }
-//            }
-//        } else {
-//            for (int i = 0; i < 8; i++) {
-//                for (int j = 0; j < 8; j++) {
-//                    if (checkerPieces[i][j].getColor().equals("black")) {
-//                        checkerBoardSquares[i][j].setEnabled(false);
-//                    }
-//                    if (checkerPieces[i][j].getColor().equals("red")) {
-//                        checkerBoardSquares[i][j].setEnabled(true);
-//                    }
-//                }
-//            }
-//        }
         if (e.getColor().equals("red")) {
-
             if (moves.canMoveLeftRed(checkerPieces, e)) {
                 checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setEnabled(true);
                 checkerBoardSquares[e.getPiecePositionX() - 1][e.getPiecePositionY() - 1].setIcon(blank);
