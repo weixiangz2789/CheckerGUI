@@ -1,8 +1,8 @@
 public class Checker {
-    String color;
-    int piecePositionX;
-    int piecePositionY;
-    boolean isPromoted;
+    private String color;
+    private int piecePositionX;
+    private int piecePositionY;
+    private boolean isPromoted;
 
     public Checker(String color, int piecePositionX, int piecePositionY, boolean isPromoted) {
         this.color = color;

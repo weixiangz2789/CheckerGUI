@@ -5,26 +5,26 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class CheckerGUI {
-    private Color redBackground = new Color(255, 0, 0, 255);
-    private Color blackBackGround = new Color(0, 0, 0, 255);
     private final JPanel gui = new JPanel(new BorderLayout(3, 3));
+    private static final String COLS = "ABCDEFGH";
     private JButton[][] checkerBoardSquares = new JButton[8][8];
     private Checker[][] checkerPieces = new Checker[8][8];
     private JPanel checkerBoard;
-    private static final String COLS = "ABCDEFGH";
     private Move moves;
     private Capture capture;
     private CapturePromoted capturePromoted;
     private MovePromoted movePromoted;
+    private Checker selected;
     private int rowIndex = -1;
     private int colIndex = -1;
+    private int turnNum = 1;
     private ImageIcon blank = new ImageIcon("blank.png");
     private ImageIcon black = new ImageIcon("black.png");
     private ImageIcon red = new ImageIcon("red.png");
     private ImageIcon blackKing = new ImageIcon("blackKing.png");
     private ImageIcon redKing = new ImageIcon("redKing.png");
-    private Checker selected;
-    private int turnNum = 1;
+    private Color redBackground = new Color(255, 0, 0, 255);
+    private Color blackBackGround = new Color(0, 0, 0, 255);
 
 
     CheckerGUI() {
@@ -345,7 +345,7 @@ public class CheckerGUI {
     public ArrayList<Integer> captureMoves(Checker e) {
         ArrayList<Integer> legalMoves = new ArrayList<>();
         if (e.getColor().equals("red")) {
-            if (e.isPromoted) {
+            if (e.isPromoted()) {
                 capturePromoted.canCaptureLeftRed(checkerPieces, e);
                 capturePromoted.canCaptureRightRed(checkerPieces, e);
                 legalMoves = capturePromoted.getLegalMovesRed();
@@ -355,7 +355,7 @@ public class CheckerGUI {
                 legalMoves = capture.getLegalMovesRed();
             }
         } else if (e.getColor().equals("black")) {
-            if (e.isPromoted) {
+            if (e.isPromoted()) {
                 capturePromoted.canCaptureLeftBlack(checkerPieces, e);
                 capturePromoted.canCaptureRightBlack(checkerPieces, e);
                 legalMoves = capturePromoted.getLegalMovesBlack();
