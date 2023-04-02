@@ -82,9 +82,6 @@ public class Move {
     public boolean isBlackMove() {
         return blackMove;
     }
-
-
-
 }
 
 

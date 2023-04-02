@@ -67,34 +67,4 @@ public class Capture {
         legalMovesRed = new ArrayList<>();
         legalMovesBlack = new ArrayList<>();
     }
-
-//public void captureStandard(Checker e){
-
-    // if(e.getColor().equals("red")) {
-    //     if(canCaptureRightRed(//give prameter)) {
-    //         System.out.println((e.getPiecePositionX() - 2) +","+ (e.getPiecePositionY() + 2 ));
-    //     }
-    //     if(canCaptureLeftRed()) {
-    //         System.out.println(e.getPiecePositionX() - 2 +","+e.getPiecePositionY() - 2 );
-    //     }
-    // }else{
-    //   if(canCaptureRightBlack()){
-    //     System.out.println(e.getPiecePositionX() + 2 +","+e.getPiecePositionY()+2 );
-    //   }
-    //   if(canCaptureLeftBlack()){
-    //     System.out.println(e.getPiecePositionX() + 2 +","+e.getPiecePositionY() - 2 );
-    //   }
-    // }
-    // must give in a New piece clicked in order for it to give possible positions or else it would not work
-//}
-
-
-//    public void winCondition() {
-//        if(redPieces == 0 || blackPieces == 0) {
-//            System.exit(0); //stub for now
-//        }
-//        for(int row = )
-//    }
-
-
 }
