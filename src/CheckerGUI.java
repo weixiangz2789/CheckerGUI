@@ -92,6 +92,7 @@ public class CheckerGUI {
                                 || desc.equals(redKing.getDescription()) || desc.equals(blackKing.getDescription())) {
                             endMoves();
                             selected = checkerPieces[row][col];
+                            endMoves();
                             if (selected.isPromoted()) {
                                 showPromotedMoves(checkerPieces[row][col]);
                             } else {
