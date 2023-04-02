@@ -61,9 +61,10 @@ public class MovePromoted extends Move {
     }
 
     public boolean winCondition(Checker[][] checkerPieces) {
-        if((containsRed(checkerPieces) && containsBlack(checkerPieces)) == false) {
+        if((containsRed(checkerPieces) == false && containsBlack(checkerPieces)) == false) {
             return false;
         }
+
         for (int i = 0; i < 8; i++) {
             for (int y = 0; y < 8; y++) {
                 if (blackMove) { //if it is black to move, check the legal moves for all black checkers
