@@ -10,7 +10,7 @@ public class CapturePromoted extends Capture {
         super.canCaptureLeftRed(checkerPieces, e); // checks forward moves and adds to arraylist
         // check what legal backward moves there are using similar logic to capture
         // class
-        if ((e.getPiecePositionX() + 2 >= 0 && e.getPiecePositionY() - 2 >= 0)
+        if ((e.getPiecePositionX() + 2 <= 7 && e.getPiecePositionY() - 2 <= 7)
                 && checkerPieces[e.getPiecePositionX() + 2][e.getPiecePositionY() - 2].getColor().equals("")
                 && checkerPieces[e.getPiecePositionX() + 1][e.getPiecePositionY() - 1].getColor().equals("black")
                 && (e.getPiecePositionX() + 2 <= 7) && (e.getPiecePositionY() - 2 >= 0)) {
