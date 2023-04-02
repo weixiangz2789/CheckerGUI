@@ -61,7 +61,7 @@ public class MovePromoted extends Move {
     }
 
     public boolean winCondition(Checker[][] checkerPieces) {
-        if((containsRed(checkerPieces) == false && containsBlack(checkerPieces)) == false) {
+        if((containsRed(checkerPieces) == false) && (containsBlack(checkerPieces)) == false) {
             return false;
         }
 
