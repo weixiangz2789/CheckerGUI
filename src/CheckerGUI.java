@@ -90,9 +90,27 @@ public class CheckerGUI {
                         String desc = ((ImageIcon) clicked.getIcon()).getDescription();
                         if (desc.equals(red.getDescription()) || desc.equals(black.getDescription())
                                 || desc.equals(redKing.getDescription()) || desc.equals(blackKing.getDescription())) {
+                            moves.switchTurns();
+                            moves.resetMoves();
+                            movePromoted.resetMoves();
+                            capture.resetMoves();
+                            capturePromoted.resetMoves();
+                            if (!movePromoted.winCondition(checkerPieces)) {
+                                JLabel label = new JLabel();
+                                if (movePromoted.getLoser().equals("red")){
+                                    label = new JLabel("                         Black has won!");
+                                }
+                                else if (movePromoted.getLoser().equals("black")){
+                                    label = new JLabel("                         Red has won!");
+                                }
+                                System.out.println("Game ended");
+                                JPanel panel = new JPanel();
+                                panel.setLayout(new BorderLayout());
+                                panel.add(label, BorderLayout.CENTER);
+                                JOptionPane.showMessageDialog(null, panel, "", JOptionPane.PLAIN_MESSAGE);
+                            }
                             endMoves();
                             selected = checkerPieces[row][col];
-                            endMoves();
                             if (selected.isPromoted()) {
                                 showPromotedMoves(checkerPieces[row][col]);
                             } else {
@@ -188,8 +206,24 @@ public class CheckerGUI {
                             checkerPieces[selected.getPiecePositionX()][selected.getPiecePositionY()].setColor("");
                             checkerBoardSquares[selected.getPiecePositionX()][selected.getPiecePositionY()].setIcon(null);
                             checkerBoardSquares[selected.getPiecePositionX()][selected.getPiecePositionY()].setEnabled(false);
+                            moves.switchTurns();
+                            moves.resetMoves();
+                            movePromoted.resetMoves();
+                            capture.resetMoves();
+                            capturePromoted.resetMoves();
                             if (!movePromoted.winCondition(checkerPieces)) {
-                                System.out.println("GAME END");
+                                JLabel label = new JLabel();
+                                if (movePromoted.getLoser().equals("red")){
+                                    label = new JLabel("                         Black has won!");
+                                }
+                                else if (movePromoted.getLoser().equals("black")){
+                                    label = new JLabel("                         Red has won!");
+                                }
+                                System.out.println("Game ended");
+                                JPanel panel = new JPanel();
+                                panel.setLayout(new BorderLayout());
+                                panel.add(label, BorderLayout.CENTER);
+                                JOptionPane.showMessageDialog(null, panel, "", JOptionPane.PLAIN_MESSAGE);
                             }
                             endMoves();
                         }
