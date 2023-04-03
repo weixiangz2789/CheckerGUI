@@ -147,6 +147,12 @@ public class MovePromoted extends Move {
                 }
             }
         }
+        if (blackMove){
+            loser = "black";
+        }
+        else{
+            loser = "red";
+        }
         return false;
     }
 

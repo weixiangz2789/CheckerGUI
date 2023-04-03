@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="992dcbd3-9591-453e-9623-f9e29da54f31" name="Changes" comment="w">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CheckerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CheckerGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovePromoted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovePromoted.java" afterDir="false" />
     </list>
     <list id="613ac935-c963-4b13-9473-8a421e3bfa4a" name="Changes by adam" comment="" />
     <list id="b11d7b23-5473-4aac-806e-3b6754b70b68" name="Changes by Connie" comment="" />
     <list id="36332bf9-2fc5-4802-a0d6-8e9f98339ebd" name="Changes by Jennifer" comment="" />
-    <list id="554d8eaf-26d4-4891-9cfb-22aa81816f47" name="Changes by Pushe" comment="">
-      <change beforePath="$PROJECT_DIR$/src/CheckerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CheckerGUI.java" afterDir="false" />
-    </list>
+    <list id="554d8eaf-26d4-4891-9cfb-22aa81816f47" name="Changes by Pushe" comment="Changes by Pushe" />
     <list id="ac0f7a79-d1ca-4a13-9b69-e193d9353d2c" name="Changes by snapc" comment="" />
     <list id="8936aa98-4395-40bb-b299-deedfe678643" name="Changes by student" comment="" />
-    <list id="3b975590-a1e0-4928-89ee-547ae72e3771" name="Changes by zhimi" comment="Changes by zhimi">
-      <change beforePath="$PROJECT_DIR$/src/CapturePromoted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CapturePromoted.java" afterDir="false" />
-    </list>
+    <list id="3b975590-a1e0-4928-89ee-547ae72e3771" name="Changes by zhimi" comment="Changes by zhimi" />
     <list id="fc56b597-27cc-48ab-ab02-7486cace924a" name="Changes by zhimin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,19 +29,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/CheckerGUI.java">
-      <ranges>
-        <range start1="85" end1="85" start2="85" end2="89" changelist="554d8eaf-26d4-4891-9cfb-22aa81816f47" />
-        <range start1="92" end1="92" start2="96" end2="115" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
-        <range start1="94" end1="95" start2="117" end2="117" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
-        <range start1="190" end1="190" start2="212" end2="217" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
-        <range start1="191" end1="192" start2="218" end2="230" changelist="992dcbd3-9591-453e-9623-f9e29da54f31" />
-        <range start1="231" end1="232" start2="269" end2="269" changelist="554d8eaf-26d4-4891-9cfb-22aa81816f47" />
-        <range start1="233" end1="233" start2="270" end2="271" changelist="554d8eaf-26d4-4891-9cfb-22aa81816f47" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -342,7 +323,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680403246046</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="w">
+      <created>1680489194901</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1680489194901</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Changes by Pushe">
+      <created>1680489205102</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1680489205102</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Changes by zhimi">
+      <created>1680489213755</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1680489213755</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,11 +359,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes by zhimi" />
-    <MESSAGE value="Changes by Pushe" />
     <MESSAGE value="Changes by snapc" />
     <MESSAGE value="w" />
-    <option name="LAST_COMMIT_MESSAGE" value="w" />
+    <MESSAGE value="Changes by Pushe" />
+    <MESSAGE value="Changes by zhimi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by zhimi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
