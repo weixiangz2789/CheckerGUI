@@ -83,6 +83,10 @@ public class CheckerGUI {
                     public void actionPerformed(ActionEvent e) {
                         rowIndex = row;
                         colIndex = col;
+                        moves.resetMoves();
+                        movePromoted.resetMoves();
+                        capture.resetMoves();
+                        capturePromoted.resetMoves();
                         promote();
                         showMoves(checkerPieces[row][col]);
                         Object source = e.getSource();
@@ -263,8 +267,8 @@ public class CheckerGUI {
                     }
                 }
             }
-            moves.switchTurns();
         }
+        moves.switchTurns();
         moves.resetMoves();
         movePromoted.resetMoves();
         capture.resetMoves();
